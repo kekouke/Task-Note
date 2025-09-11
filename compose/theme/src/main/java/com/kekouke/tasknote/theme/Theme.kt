@@ -1,6 +1,5 @@
-package com.kekouke.tasknote.ui.theme
+package com.kekouke.tasknote.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

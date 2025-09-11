@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Task Note"
 include(":app")
- 
+include(":compose:theme")

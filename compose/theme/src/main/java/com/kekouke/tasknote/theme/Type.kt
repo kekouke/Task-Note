@@ -1,4 +1,4 @@
-package com.kekouke.tasknote.ui.theme
+package com.kekouke.tasknote.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
