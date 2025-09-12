@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="label_task_status_done">Done</string>
+    <string name="label_task_status_in_progress">In progress</string>
+    <string name="label_task_status_to_do">To-do</string>
+    <string name="content_description_close">Закрыть</string>
+</resources>
