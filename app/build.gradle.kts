@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.kekouke.tasknote"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.kekouke.tasknote"
@@ -42,6 +42,7 @@ android {
 dependencies {
 
     implementation(project(":compose:theme"))
+    implementation(project(":feature:tasks"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -4,4 +4,5 @@
     <string name="label_task_status_in_progress">In progress</string>
     <string name="label_task_status_to_do">To-do</string>
     <string name="content_description_close">Закрыть</string>
+    <string name="title_task_list">Tasks</string>
 </resources>
