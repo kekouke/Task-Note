@@ -3,10 +3,8 @@ package com.kekouke.tasknote.tasks.presentation.list
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -17,17 +15,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kekouke.task.R
 import com.kekouke.tasknote.tasks.presentation.list.models.TaskUiModel
+import com.kekouke.tasknote.tasks.presentation.ui_kit.CreationTime
 import com.kekouke.tasknote.tasks.presentation.ui_kit.status.StatusChip
 import com.kekouke.tasknote.tasks.presentation.ui_kit.status.toUiState
-import com.kekouke.tasknote.theme.Purple80
-import com.kekouke.tasknote.theme.Regular13
 import com.kekouke.tasknote.theme.TaskNoteTheme
 import com.kekouke.tasknote.theme.TitleH2
 import com.kekouke.tasknote.theme.labelBlack
@@ -84,29 +80,6 @@ internal fun TaskCard(
                 StatusChip(task.status.toUiState())
             }
         }
-    }
-}
-
-@Composable
-private fun CreationTime(
-    time: String,
-    modifier: Modifier = Modifier
-) {
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Icon(
-            painter = painterResource(R.drawable.ic_clock),
-            tint = Purple80,
-            contentDescription = null,
-        )
-        Spacer(Modifier.width(4.dp))
-        Text(
-            text = time,
-            style = Regular13,
-            color = Purple80
-        )
     }
 }
 

@@ -5,4 +5,6 @@
     <string name="label_task_status_to_do">To-do</string>
     <string name="content_description_close">Закрыть</string>
     <string name="title_task_list">Tasks</string>
+    <string name="content_description_back">Назад</string>
+    <string name="label_task_details_status">Статус:</string>
 </resources>

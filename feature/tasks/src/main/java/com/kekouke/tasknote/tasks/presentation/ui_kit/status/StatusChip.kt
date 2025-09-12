@@ -21,7 +21,7 @@ internal fun StatusChip(
     Text(
         modifier = modifier
             .clip(CircleShape)
-            .background(state.color.copy(alpha = 0.1f))
+            .background(state.color.copy(alpha = 0.2f))
             .padding(horizontal = 8.dp, vertical = 2.dp),
         text = stringResource(state.textResId),
         color = state.color
