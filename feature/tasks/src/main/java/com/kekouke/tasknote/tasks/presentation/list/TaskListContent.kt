@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kekouke.task.R
 import com.kekouke.tasknote.tasks.presentation.list.models.TaskUiModel
+import com.kekouke.tasknote.tasks.presentation.ui_kit.SelectTaskStatusModal
 import com.kekouke.tasknote.theme.TaskNoteTheme
 import com.kekouke.tasknote.theme.TitleH1
 import com.kekouke.tasknote.theme.labelBlack
@@ -47,6 +48,10 @@ fun TaskListContent(modifier: Modifier = Modifier) {
             }
         }
     }
+
+    SelectTaskStatusModal(
+        onDismissRequest = {}
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
