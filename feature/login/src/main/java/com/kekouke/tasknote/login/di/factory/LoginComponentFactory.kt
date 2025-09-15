@@ -5,10 +5,11 @@ import com.kekouke.tasknote.login.domain.UserRepository
 import com.kekouke.tasknote.login.presentation.LoginComponent
 import com.kekouke.tasknote.login.presentation.LoginComponent.Output
 import com.kekouke.tasknote.login.presentation.LoginComponentImpl
+import dagger.Lazy
 import javax.inject.Inject
 
 class LoginComponentFactory @Inject constructor(
-    private val userRepository: UserRepository
+    private val userRepository: Lazy<UserRepository>
 ) : LoginComponent.Factory {
     override fun invoke(
         componentContext: ComponentContext,
@@ -17,7 +18,7 @@ class LoginComponentFactory @Inject constructor(
         return LoginComponentImpl(
             componentContext = componentContext,
             output = output,
-            userRepository = userRepository
+            userRepository = userRepository.get()
         )
     }
 }

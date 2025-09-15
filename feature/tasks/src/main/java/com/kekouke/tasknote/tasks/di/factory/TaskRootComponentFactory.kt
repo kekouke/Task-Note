@@ -4,10 +4,11 @@ import com.arkivanov.decompose.ComponentContext
 import com.kekouke.tasknote.tasks.domain.repository.TaskRepository
 import com.kekouke.tasknote.tasks.presentation.root.TaskRootComponent
 import com.kekouke.tasknote.tasks.presentation.root.TaskRootComponentImpl
+import dagger.Lazy
 import javax.inject.Inject
 
 class TaskRootComponentFactory @Inject constructor(
-    private val taskRepository: TaskRepository
+    private val taskRepository: Lazy<TaskRepository>
 ) : TaskRootComponent.Factory {
     override fun invoke(
         componentContext: ComponentContext,
@@ -16,7 +17,7 @@ class TaskRootComponentFactory @Inject constructor(
         return TaskRootComponentImpl(
             componentContext = componentContext,
             output = output,
-            taskRepository = taskRepository
+            taskRepository = taskRepository.get()
         )
     }
 }
