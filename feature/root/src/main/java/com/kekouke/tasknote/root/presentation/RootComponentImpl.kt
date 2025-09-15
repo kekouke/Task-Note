@@ -12,6 +12,9 @@ import com.kekouke.tasknote.login.presentation.LoginComponent
 import com.kekouke.tasknote.root.di.dependencies.RootDependencies
 import com.kekouke.tasknote.root.domain.entities.LaunchScreen
 import com.kekouke.tasknote.tasks.presentation.root.TaskRootComponent
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.serialization.Serializable
 
 class RootComponentImpl(
@@ -33,6 +36,17 @@ class RootComponentImpl(
     )
 
     private val coroutineScope = coroutineScope()
+
+    init {
+        dependencies.userRepository.authFlow
+            .drop(1)
+            .onEach { isAuthenticated ->
+                if (isAuthenticated.not()) {
+                    navigation.replaceAll(Config.Login)
+                }
+            }
+            .launchIn(coroutineScope)
+    }
 
     private fun pickLaunchScreen(): Config {
         return when (dependencies.getLaunchScreenUseCase()) {
