@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_title">Вход в TaskNote</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Пароль</string>
+    <string name="action_sign_in">Войти</string>
+    <string name="action_sign_up">Зарегистрироваться</string>
+    <string name="login_loading">Вход...</string>
+    <string name="login_error">Ошибка входа</string>
+    <string name="login_success">Успешный вход</string>
+    <string name="label_login_unknown_authorization_error">Ошибка авторизации</string>
+    <string name="login_wrong_email_or_password">Неверный email или пароль</string>
+</resources>

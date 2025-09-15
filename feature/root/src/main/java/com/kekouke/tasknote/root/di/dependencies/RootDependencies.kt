@@ -1,3 +1,7 @@
 package com.kekouke.tasknote.root.di.dependencies
 
-interface RootDependencies
+import com.kekouke.tasknote.login.di.factory.LoginComponentFactory
+
+interface RootDependencies {
+    val loginComponentFactory: LoginComponentFactory
+}

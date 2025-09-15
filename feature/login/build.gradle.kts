@@ -3,12 +3,11 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.hilt)
 }
 
 android {
-    namespace = "com.kekouke.tasknote.root"
+    namespace = "com.kekouke.tasknote.login"
     compileSdk = 36
 
     defaultConfig {
@@ -40,13 +39,12 @@ android {
 
 dependencies {
     implementation(project(":compose:theme"))
-    implementation(project(":feature:login"))
-
+    implementation(project(":core:utils"))
+    
     implementation(libs.decompose)
     implementation(libs.decompose.compose)
     implementation(libs.essenty.lifecycle.coroutines)
-    implementation(libs.kotlinx.serialization.json)
-
+    
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
