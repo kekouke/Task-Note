@@ -25,7 +25,6 @@ import com.kekouke.tasknote.tasks.presentation.list.TaskListComponent.UiState
 import com.kekouke.tasknote.tasks.presentation.list.models.NewTask
 import com.kekouke.tasknote.tasks.presentation.list.models.toUiModel
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
@@ -118,6 +117,8 @@ internal class TaskListComponentImpl(
     }
 
     private fun addTask(task: NewTask) {
+        if (!task.hasValidTitle) return
+
         coroutineScope.launch {
             taskRepository.addTask(task)
         }

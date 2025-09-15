@@ -66,8 +66,8 @@ class TaskNetworkDataSource @Inject constructor() : TaskDataSource {
 
     override suspend fun addTask(task: NewTask) {
         val dto = TaskDto(
-            title = task.title,
-            description = task.description,
+            title = task.title.trim(),
+            description = task.description.trim(),
             utcCreationTime = LocalDateTime.now().toDateTime(DateTimeZone.UTC).millis,
             status = TaskStatus.Todo.name
         )

@@ -6,6 +6,6 @@ data class NewTask(
     val title: String = "",
     val description: String = "",
 ) : Serializable {
-    val isValid: Boolean
-        get() = title.isNotBlank()
+    val hasValidTitle: Boolean
+        get() = title.trim().isNotBlank()
 }

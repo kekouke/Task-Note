@@ -26,7 +26,7 @@ internal fun Task.toUiModel(): TaskUiModel {
     return TaskUiModel(
         id = id,
         title = title,
-        creationTime = utcCreationTime.toString("dd MMM YYYY HH:MM"),
+        creationTime = utcCreationTime.toString("dd MMM YYYY HH:mm"),
         status = status,
         isDeletingAvailable = status == TaskStatus.Todo,
     )

@@ -18,7 +18,6 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -115,7 +114,7 @@ private fun AddTaskModalContent(
             Button(
                 modifier = Modifier.weight(1f),
                 onClick = { onSubmit(form) },
-                enabled = form.isValid
+                enabled = form.hasValidTitle
             ) {
                 Text(stringResource(R.string.label_add))
             }

@@ -23,7 +23,7 @@ val Task.toUiModel: TaskDetailsUiModel
     get() = TaskDetailsUiModel(
         title = title,
         description = description,
-        creationTime = utcCreationTime.toString("dd MMM YYYY HH:MM"),
+        creationTime = utcCreationTime.toString("dd MMM YYYY HH:mm"),
         status = status
     )
 
