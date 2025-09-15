@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -61,7 +62,7 @@ private fun AddTaskModalContent(
     onSubmit: (NewTask) -> Unit,
     onDismiss: () -> Unit
 ) {
-    var form by remember { mutableStateOf(NewTask()) }
+    var form by rememberSaveable { mutableStateOf(NewTask()) }
     
     Column(
         modifier = modifier
