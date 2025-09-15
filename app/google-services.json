@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1015988931443",
+    "firebase_url": "https://task-note-ff21d-default-rtdb.firebaseio.com",
+    "project_id": "task-note-ff21d",
+    "storage_bucket": "task-note-ff21d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015988931443:android:fddac77365dff55dfcd306",
+        "android_client_info": {
+          "package_name": "com.kekouke.tasknote"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMLAxhMsGqa6Sh5ZLZAJJfmiflxv2rEhA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

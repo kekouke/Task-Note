@@ -44,6 +44,9 @@ dependencies {
     implementation(libs.decompose)
     implementation(libs.decompose.compose)
     implementation(libs.essenty.lifecycle.coroutines)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
     
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

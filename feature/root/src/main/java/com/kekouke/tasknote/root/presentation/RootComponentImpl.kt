@@ -10,6 +10,7 @@ import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.lifecycle.coroutines.coroutineScope
 import com.kekouke.tasknote.login.presentation.LoginComponent
 import com.kekouke.tasknote.root.di.dependencies.RootDependencies
+import com.kekouke.tasknote.root.domain.entities.LaunchScreen
 import kotlinx.serialization.Serializable
 
 class RootComponentImpl(
@@ -25,12 +26,19 @@ class RootComponentImpl(
     private val _stack = childStack(
         source = navigation,
         serializer = Config.serializer(),
-        initialConfiguration = Config.Login,
+        initialConfiguration = pickLaunchScreen(),
         handleBackButton = true,
         childFactory = ::createChild
     )
 
     private val coroutineScope = coroutineScope()
+
+    private fun pickLaunchScreen(): Config {
+        return when (dependencies.getLaunchScreenUseCase()) {
+            LaunchScreen.Login -> Config.Login
+            LaunchScreen.Tasks -> Config.Tasks
+        }
+    }
 
     private fun createChild(
         config: Config,
