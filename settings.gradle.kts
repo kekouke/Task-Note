@@ -23,5 +23,6 @@ rootProject.name = "Task Note"
 include(":app")
 include(":feature:root")
 include(":feature:login")
+include(":feature:tasks")
 include(":compose:theme")
 include(":core:utils")

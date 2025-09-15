@@ -1,4 +1,4 @@
-package com.kekouke.tasknote.tasks.presentation.ui_kit
+package com.kekouke.tasknote.tasks.presentation.list.ui_kit
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -13,6 +13,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,21 +33,23 @@ import com.kekouke.tasknote.theme.labelWhite
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SelectTaskStatusModal(
+    availableStatuses: List<TaskStatus>,
     onDismissRequest: () -> Unit,
+    onSelectStatus: (TaskStatus) -> Unit,
     modifier: Modifier = Modifier
 ) {
     ModalBottomSheet(
         modifier = modifier,
         onDismissRequest = onDismissRequest,
+        sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
         shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
     ) {
         SelectTaskStatusModalContent(
             modifier = Modifier
                 .padding(horizontal = 16.dp)
                 .padding(bottom = 16.dp),
-            listOf(
-                TaskStatus.Todo,
-            )
+            statuses = availableStatuses,
+            onSelectStatus = onSelectStatus
         )
     }
 }
@@ -54,7 +57,8 @@ internal fun SelectTaskStatusModal(
 @Composable
 private fun SelectTaskStatusModalContent(
     modifier: Modifier = Modifier,
-    statuses: List<TaskStatus>
+    statuses: List<TaskStatus>,
+    onSelectStatus: (TaskStatus) -> Unit
 ) {
     Column(modifier.verticalScroll(rememberScrollState())) {
         Text(
@@ -76,7 +80,7 @@ private fun SelectTaskStatusModalContent(
                 StatusItem(
                     modifier = Modifier.fillMaxWidth(),
                     status = status,
-                    onClick = {}
+                    onClick = { onSelectStatus(status) }
                 )
                 if (index < statuses.lastIndex) {
                     HorizontalDivider()
@@ -113,7 +117,8 @@ private fun SelectTaskStatusModalPreview() {
                 TaskStatus.Todo,
                 TaskStatus.InProgress,
                 TaskStatus.Done
-            )
+            ),
+            onSelectStatus = {}
         )
     }
 }

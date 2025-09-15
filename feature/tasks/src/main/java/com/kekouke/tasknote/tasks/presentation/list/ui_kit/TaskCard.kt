@@ -1,5 +1,6 @@
-package com.kekouke.tasknote.tasks.presentation.list
+package com.kekouke.tasknote.tasks.presentation.list.ui_kit
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,10 +34,14 @@ import com.kekouke.tasknote.theme.labelWhite
 @Composable
 internal fun TaskCard(
     task: TaskUiModel,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+    onDeleteClick: (() -> Unit),
+    onStatusClick: (() -> Unit)
 ) {
     Card(
         modifier = modifier,
+        onClick = onClick,
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             contentColor = labelBlack,
@@ -62,7 +67,9 @@ internal fun TaskCard(
                 )
                 if (task.isDeletingAvailable) {
                     Icon(
-                        modifier = Modifier.padding(start = 16.dp),
+                        modifier = Modifier
+                            .padding(start = 16.dp)
+                            .clickable(true, onClick = onDeleteClick),
                         imageVector = Icons.Filled.Close,
                         tint = labelSecondary,
                         contentDescription = stringResource(R.string.content_description_close)
@@ -77,7 +84,10 @@ internal fun TaskCard(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 CreationTime(task.creationTime)
-                StatusChip(task.status.toUiState())
+                StatusChip(
+                    state = task.status.toUiState(),
+                    onClick = onStatusClick
+                )
             }
         }
     }
@@ -90,6 +100,9 @@ private fun TaskCardPreview() {
         TaskCard(
             modifier = Modifier.fillMaxWidth(),
             task = TaskUiModel.preview(),
+            onClick = {},
+            onDeleteClick = {},
+            onStatusClick = {}
         )
     }
 }

@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.stack.Children
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.kekouke.tasknote.login.presentation.LoginContent
+import com.kekouke.tasknote.tasks.presentation.root.TaskRootContent
 
 @Composable
 fun RootContent(
@@ -28,7 +29,10 @@ fun RootContent(
             }
 
             is RootComponent.Child.Tasks -> {
-
+                TaskRootContent(
+                    component = current.component,
+                    modifier = Modifier.fillMaxSize()
+                )
             }
         }
     }

@@ -1,8 +1,9 @@
 package com.kekouke.tasknote.tasks.presentation.details.models
 
 import com.kekouke.tasknote.tasks.domain.TaskStatus
+import com.kekouke.tasknote.tasks.domain.entities.Task
 
-internal data class TaskDetailsUiModel(
+data class TaskDetailsUiModel(
     val title: String,
     val description: String,
     val creationTime: String,
@@ -17,3 +18,12 @@ internal data class TaskDetailsUiModel(
         )
     }
 }
+
+val Task.toUiModel: TaskDetailsUiModel
+    get() = TaskDetailsUiModel(
+        title = title,
+        description = description,
+        creationTime = utcCreationTime.toString("dd MMM YYYY HH:MM"),
+        status = status
+    )
+

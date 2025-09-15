@@ -11,6 +11,7 @@ import com.arkivanov.essenty.lifecycle.coroutines.coroutineScope
 import com.kekouke.tasknote.login.presentation.LoginComponent
 import com.kekouke.tasknote.root.di.dependencies.RootDependencies
 import com.kekouke.tasknote.root.domain.entities.LaunchScreen
+import com.kekouke.tasknote.tasks.presentation.root.TaskRootComponent
 import kotlinx.serialization.Serializable
 
 class RootComponentImpl(
@@ -44,19 +45,30 @@ class RootComponentImpl(
         config: Config,
         context: ComponentContext
     ): RootComponent.Child = when (config) {
-        is Config.Login -> RootComponent.Child.Login(
+        Config.Login -> RootComponent.Child.Login(
             dependencies.loginComponentFactory.invoke(
                 componentContext = context.childContext("login"),
                 output = ::onLoginOutput
             )
         )
 
-        Config.Tasks -> RootComponent.Child.Tasks
+        Config.Tasks -> RootComponent.Child.Tasks(
+            dependencies.tasksComponentFactory.invoke(
+                componentContext = context.childContext("task_root"),
+                output = ::onTaskRootOutput
+            )
+        )
     }
 
     private fun onLoginOutput(output: LoginComponent.Output) {
         when (output) {
             LoginComponent.Output.LoginCompleted -> navigation.replaceAll(Config.Tasks)
+        }
+    }
+
+    private fun onTaskRootOutput(output: TaskRootComponent.Output) {
+        when (output) {
+            else -> Unit
         }
     }
 

@@ -41,6 +41,7 @@ android {
 dependencies {
     implementation(project(":compose:theme"))
     implementation(project(":feature:login"))
+    implementation(project(":feature:tasks"))
 
     implementation(libs.decompose)
     implementation(libs.decompose.compose)
